@@ -7,6 +7,7 @@ const appMenu = () => {
         home: {link:'#/', label:'Home'},
         services: {link:'#/services', label:'Serviços'},
         login: {link:'#/login', label:'Entrar'},
+        count: 0
     }
 
     const events = ({on, queryAll, methods }) => {
@@ -19,16 +20,19 @@ const appMenu = () => {
         return { onClickMenu }
     }
 
-    const methods = ({ setState }) => {
-
-        let count = 0
-        
+    const methods = ({ setState, getState }) => {
+       
         const logger = ({target}) => {
             console.log(target)
         }
         
         const updateTitle = () => {
-            const payload = { home: { label: `Vezes clicadas: ${count++}`}}
+            const state = getState()
+            const count = state.count + 1
+            const payload = { 
+                count,
+                home: { label: `Vezes clicadas: ${count}`}
+            }
             setState(payload)
         }
 
