@@ -3,11 +3,11 @@ import styles from './appMenu.styles.js'
 
 const appMenu = () => {
 
-    const state = () => ({
+    const state = {
         home: {link:'#/', label:'Home'},
         services: {link:'#/services', label:'Serviços'},
         login: {link:'#/login', label:'Entrar'},
-    })
+    }
 
     const events = ({on, queryAll, methods }) => {
         

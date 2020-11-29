@@ -5,17 +5,26 @@ import appMenu from '../appMenu/appMenu.component.js'
 
 const appHeader = () => {
 
-    const state = () => ({
-        title: 'Header'
-    })
+    const state = {
+        title: 'header'
+    }
 
     const children = () => ({ appMenu })
+
+    const hooks = () => ({})
+
+    const methods = () => ({})
+
+    const events = () => ({})
 
     return {
         state,
         template,
         styles,
-        children
+        children,
+        hooks,
+        methods,
+        events
     }
 }
 

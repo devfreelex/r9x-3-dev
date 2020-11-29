@@ -1,11 +1,11 @@
-import { componentManagerFactory } from '../lib/componentManager.js'
-
+import { r9x } from '../lib/r9x.js'
 import appHeader from './components/appHeader/appHeader.component.js'
 
-const componentManager = componentManagerFactory()
+const app = r9x({
+    main: () => ({ factory: appHeader, parentElement: document.body })
+})
 
-componentManager.create(appHeader, document.querySelector('body'))
-componentManager.inject()
+app.init()
 
 
 
