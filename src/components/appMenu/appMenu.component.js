@@ -1,6 +1,8 @@
 import template from './appMenu.template.js'
 import styles from './appMenu.styles.js'
 
+import appLabel from '../appLabel/appLabel.component.js'
+
 const appMenu = () => {
 
     const state = {
@@ -9,6 +11,10 @@ const appMenu = () => {
         login: {link:'#/login', label:'Entrar'},
         count: 0
     }
+
+    const children = () => ({
+        appLabel
+    })
 
     const events = ({on, queryAll, methods }) => {
         
@@ -47,7 +53,8 @@ const appMenu = () => {
         template,
         styles,
         events,
-        methods
+        methods,
+        children
     }
 }
 
