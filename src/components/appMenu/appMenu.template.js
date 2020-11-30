@@ -5,6 +5,6 @@ export default ({ state, html }) => html`
             <li>${state.services.label}</li>
             <li>${state.login.label}</li>
         </ul>
-        <div data-component="appLabel" data-label="Prop Label"></div>
+        <div data-component="appLabel" data-label="Prop Label" data-counter="0"></div>
     </div>
 `

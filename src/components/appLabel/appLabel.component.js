@@ -1,7 +1,11 @@
 import template from './appLabel.template.js'
 import styles from './appLabel.styles.js'
 
+import { labelWatcher } from '../../store/label.observable.js'
+
 const appLabel = () => {
+
+    let labelHandler = null
 
     const state = { 
         value: 'Label Value',
@@ -10,10 +14,10 @@ const appLabel = () => {
 
     const hooks = ({methods}) => ({
         beforeOnInit () {
-            methods.logger('before hook')
+            
         },
         afterOnInit () {
-            methods.logger('after hook')
+            labelHandler = labelWatcher.on(methods.updateState)
         }
     })
 
@@ -25,11 +29,17 @@ const appLabel = () => {
         }
     })
 
-    const methods = ({ getState, setState }) => ({
+    const methods = ({ getProps, setProps, getState, setState }) => ({
         increment () {
-            const state = getState()
-            setState({ counter: state.counter + 1 })
+            const { counter: propCounter } = getProps()
+            const { counter: stateCounter } = getState()
+            labelWatcher.set({ propCounter: +propCounter + 1,  stateCounter: +stateCounter + 1 })
         },
+        updateState ({propCounter, stateCounter}) {
+            setProps({ counter: propCounter })
+            setState({ counter: stateCounter })
+        },
+
         logger (data) { console.log(data)}
     })
 
