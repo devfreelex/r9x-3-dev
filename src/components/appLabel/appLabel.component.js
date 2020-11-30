@@ -8,6 +8,15 @@ const appLabel = () => {
         counter: 0
     }
 
+    const hooks = ({methods}) => ({
+        beforeOnInit () {
+            methods.logger('before hook')
+        },
+        afterOnInit () {
+            methods.logger('after hook')
+        }
+    })
+
     const events = ({ on, query, methods}) => ({
         onClick () {
             const label = query('h3')
@@ -20,7 +29,8 @@ const appLabel = () => {
         increment () {
             const state = getState()
             setState({ counter: state.counter + 1 })
-        }
+        },
+        logger (data) { console.log(data)}
     })
 
     return {
@@ -28,7 +38,8 @@ const appLabel = () => {
         template,
         styles,
         events,
-        methods
+        methods,
+        hooks,
     }
 }
 
