@@ -24,7 +24,8 @@ const appLabel = () => {
     const events = ({ on, query, methods}) => ({
         onClick () {
             const label = query('h3')
-            on('click', label, methods.increment)
+            const debounce = 1000
+            on('click', label, methods.increment, debounce)
 
         }
     })
