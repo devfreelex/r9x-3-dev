@@ -2,7 +2,7 @@ import { appCreator } from './component.js'
 import { render } from './render.js'
 import { routerFactory } from './router.js'
 
-const r9x = ({ main, routes}) => {
+const pam = ({ main, routes}) => {
     const _components = []
     const app = appCreator()
     const _router = routerFactory()
@@ -58,4 +58,4 @@ const r9x = ({ main, routes}) => {
     }
 }
 
-export { r9x }
+export { pam }

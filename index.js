@@ -1,4 +1,4 @@
-import { r9x as pamjs } from './src/router.js'
+import { pam } from './src/pam.js'
 import { observableFactory } from './src/observer.js'
 
-export { pamjs, observableFactory }
+export { pam, observableFactory }
