@@ -4,6 +4,14 @@ import appMain from './components/appMain/appMain.component.js'
 import appHome from './components/appHome/appHome.component.js'
 import appOther from './components/appOther/appOther.component.js'
 
+const routes = {
+    firstRoute: { hash: '#/home', component: appHome },
+    defaultRoute: { hash: '#/404', component: appOther },
+    otherRoutes: [
+        { hashExp: /^\#\/$/, component: appHome },
+    ]
+}
+
 const app = r9x({
 
     main: () => ({ 
@@ -11,13 +19,7 @@ const app = r9x({
         parentElement: document.body 
     }),
 
-    routes: {
-        firstRoute: { hash: '#/', component: appHome },
-        defaultRoute: { hash: '#/404', component: appOther },
-        otherRoutes: [
-            { hashExp: /^\#\/$/, component: appOther },
-        ]
-    }
+    routes,
 
 })
 
