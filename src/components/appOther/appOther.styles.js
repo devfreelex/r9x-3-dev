@@ -1,10 +1,10 @@
 export default ({ctx, css}) => css`
-    ${ctx} .label-wrapper {
+    ${ctx} .other-wrapper {
         display:block;
         float:left;
         width:100%;
-        background:#f00;
         padding:15px;
-        color:#000;        
+        background:#fff;
+        text-align:center;
     }
 `

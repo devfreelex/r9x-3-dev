@@ -1,12 +1,10 @@
 export default ({ctx, css}) => css`
-
-    ${ctx} .header-wrapper {
+    ${ctx} .home-wrapper {
         display:block;
         float:left;
         width:100%;
         padding:15px;
-        color:#fff;
-        background:#ccc
+        background:#fff;
+        text-align:center;
     }
-
 `

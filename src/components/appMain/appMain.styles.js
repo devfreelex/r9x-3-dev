@@ -1,10 +1,13 @@
 export default ({ctx, css}) => css`
-    ${ctx} .menu-wrapper {
+    ${ctx} .main-wrapper {
         display:block;
         float:left;
         width:100%;
-        background:#ff6600;
         padding:15px;
-        color:#fff;        
+        background:#f1f1f1;
     }
-`
+
+    ${ctx} * {
+        box-sizing: border-box
+    }
+`   
