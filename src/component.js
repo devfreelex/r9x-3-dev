@@ -10,16 +10,21 @@ const appCreator = () => {
         return Array.from(contextElement.querySelectorAll(selector))
     }
 
-    const _on = (eventName, target, handler, debounceTime = 0) => {
+    const _on = (eventName, target, handler, useDebounce = false, debounceTime = 0) => {
 
         const listenerName = `on${eventName}`
 
         if(!Array.isArray(target)) {
-            return target.addEventListener(eventName, _debounce(handler, debounceTime))
+
+            return useDebounce === false ? 
+                target.addEventListener(eventName, handler) : 
+                target.addEventListener(eventName, _debounce(handler, debounceTime))
         }
 
         target.forEach( element => {
-            element.addEventListener(eventName, _debounce(handler, debounceTime))
+            useDebounce === false ? 
+                element.addEventListener(eventName, handler) : 
+                element.addEventListener(eventName, _debounce(handler, debounceTime))
         })
     }
 
