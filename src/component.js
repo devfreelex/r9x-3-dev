@@ -41,7 +41,10 @@ const appCreator = () => {
             
             Array.from(elements).forEach( element => { 
                 child.element = element
-                child.element.innerHTML = child.template({ props: child.props, state: child.state, html })
+                // child.element.innerHTML = child.template({ props: child.props, state: child.state, html })
+                child.hooks.beforeOnInit()
+                child.render({ props: child.props, state: child.state, html })
+                child.hooks.afterOnInit()
                 child.bindEventListener()
             })
 
