@@ -42,15 +42,17 @@ const appCreator = () => {
         children.forEach( child => {
             const selector = child.selector
             const parentElement = child.parentElement
-            const elements = parentElement.querySelectorAll(selector)
+            const elements = Array.from(parentElement.querySelectorAll(selector))
             
-            Array.from(elements).forEach( element => { 
+            elements.forEach( element => { 
+                child.props = element.dataset
                 child.element = element
                 // child.element.innerHTML = child.template({ props: child.props, state: child.state, html })
                 child.hooks.beforeOnInit()
                 child.render({ props: child.props, state: child.state, html })
                 child.hooks.afterOnInit()
                 child.bindEventListener()
+
             })
 
             if(Array.isArray(child.children) && child.children.length) {
