@@ -102,7 +102,9 @@ const appCreator = () => {
                 setProps: (payload) => {
                     _setProps(payload, component)
                 },
-                getProps: () => _getProps(component)
+                getProps: () => _getProps(component),
+                query: (selector) => _query.call(null, selector, component.element), 
+                queryAll: (selector) => _queryAll.call(null, selector, component.element)                
             }) 
             return
         }   
